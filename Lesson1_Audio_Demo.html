@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1 Audio</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:520px;margin:30px auto;padding:20px;background:#fff}
+h1{color:#f28c28;text-align:center}
+.item{margin:14px 0}
+button{width:100%;padding:14px;font-size:18px;border:none;border-radius:8px;background:#f28c28;color:#fff;cursor:pointer}
+button:disabled{background:#ccc}
+audio{display:none}
+</style>
+</head>
+<body>
+<h1>Dual English 1</h1>
+<h2>Lesson 1</h2>
+
+<div class="item"><button onclick="playAudio()">🎭 Conversation</button></div>
+<div class="item"><button disabled>📝 Words</button></div>
+<div class="item"><button disabled>📖 Structure</button></div>
+<div class="item"><button disabled>❓ Quiz</button></div>
+<div class="item"><button disabled>🔤 Phonics</button></div>
+
+<audio id="player" src="音声 Good morning.mp3"></audio>
+
+<script>
+function playAudio(){
+ const p=document.getElementById('player');
+ p.currentTime=0;
+ p.play();
+}
+</script>
+</body>
+</html>
