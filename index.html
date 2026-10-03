@@ -24,13 +24,37 @@ audio{display:none}
 <div class="item"><button onclick="playAudio('phonics.mp3')">🔤 Phonics</button></div>
 
 <audio id="player"></audio>
+
+<div class="item">
+  <button id="pauseBtn" onclick="togglePause()" disabled>⏸ Pause</button>
+</div>
+
 <script>
+const p = document.getElementById('player');
+const pauseBtn = document.getElementById('pauseBtn');
+
 function playAudio(file){
-  const p=document.getElementById('player');
-  p.src=file;
-  p.currentTime=0;
+  p.src = file;
+  p.currentTime = 0;
   p.play();
+  pauseBtn.disabled = false;
+  pauseBtn.textContent = '⏸ Pause';
 }
+
+function togglePause(){
+  if (p.paused) {
+    p.play();
+    pauseBtn.textContent = '⏸ Pause';
+  } else {
+    p.pause();
+    pauseBtn.textContent = '▶ Resume';
+  }
+}
+
+p.addEventListener('ended', function(){
+  pauseBtn.disabled = true;
+  pauseBtn.textContent = '⏸ Pause';
+});
 </script>
 </body>
 </html>
